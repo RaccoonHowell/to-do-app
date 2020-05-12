@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
-import Todo from './Todo';
+
+const Todo = ({ todo }) => <div className="todo">{todo.text}</div>;
 
 function TodoForm({ addTodo }) {
 	const [value, setValue] = useState("");
@@ -13,13 +14,13 @@ function TodoForm({ addTodo }) {
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
-		  <input
-			type="text"
-			className="input"
-			value={value}
-			onChange={e => setValue(e.target.value)}
-		  />
+		<form onSubmit={ handleSubmit }>
+			<input
+				type="text"
+				className="input"
+				value={ value }
+				onChange={ e => setValue(e.target.value) }
+			/>
 		</form>
 	  );
 }
@@ -30,6 +31,11 @@ function App() {
 		{ text: "Practice using hooks in React" },
 		{ text: "Clean bathroom" },
 	]);
+
+	const addTodo = text => {
+		const newTodos = [...todos, { text }];
+		setTodos(newTodos);
+	};
 
 	return (
 		<div className="app">
