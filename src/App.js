@@ -7,6 +7,8 @@ function App() {
 		{ text: "Practice using hooks in React" },
 		{ text: "Clean bathroom" },
 	]);
+
+	return <div></div>
 }
 
 export default App;
