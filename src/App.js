@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 
-function Todo({ todo, index, completeTodo }) {
+function Todo({ todo, index, completeTodo, removeTodo }) {
 	return (
 		<div 
 			className="todo"
@@ -80,6 +80,7 @@ function App() {
 						index={index}
 						todo={todo}
 						completeTodo={completeTodo}
+						removeTodo={removeTodo}
 					/>
 			 	))}
 				<TodoForm addTodo={addTodo} />
