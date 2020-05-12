@@ -47,6 +47,7 @@ function App() {
 						todo={todo}
 					/>
 			 	))}
+				<TodoForm addTodo={addTodo} />
 			</div>
 		</div>
 	)
