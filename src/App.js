@@ -1,7 +1,19 @@
 import React, { useState } from 'react';
 import './App.css';
 
-const Todo = ({ todo }) => <div className="todo">{todo.text}</div>;
+function Todo({ todo, index, completeTodo }) {
+	return (
+		<div 
+			className="todo"
+			style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
+		>
+			{ todo.text }
+			<div>
+				<button onClick={ () => completeTodo(index) }>Complete</button>
+			</div>
+		</div>
+	);
+}
 
 function TodoForm({ addTodo }) {
 	const [value, setValue] = useState("");
@@ -60,6 +72,7 @@ function App() {
 						key={index}
 						index={index}
 						todo={todo}
+						completeTodo={completeTodo}
 					/>
 			 	))}
 				<TodoForm addTodo={addTodo} />
